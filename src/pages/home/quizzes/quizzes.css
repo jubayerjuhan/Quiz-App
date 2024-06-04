@@ -1,0 +1,79 @@
+/* quizzes.css */
+
+.quizzes_page {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.timer {
+  text-align: center;
+  color: #007bff;
+  margin: 25px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.quiz {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quiz h2 {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.option {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.option input {
+  margin-right: 10px;
+}
+
+.option label {
+  font-size: 14px;
+}
+
+.submit_button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.no_quiz_warning {
+  text-align: center;
+  font-size: 20px;
+  color: red;
+  margin-top: 20px;
+}
