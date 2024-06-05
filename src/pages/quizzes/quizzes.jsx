@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./quizzes.css";
-import { quizzes } from "../../../mock-data/quizzes";
+import { quizzes } from "../../mock-data/quizzes";
 
 const Quizzes = () => {
   const location = useLocation();
