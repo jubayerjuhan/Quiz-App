@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import "./home.css";
 
-const subjects = [
+export const subjects = [
   "DSA",
   "Circuit Analysis and Design",
   "Marketing Strategies",
@@ -74,14 +74,33 @@ const Home = () => {
     <div className="home_page" ref={dropdownRef}>
       <div className="header">
         <div className="header-info">
-          <div className="info left">Welcome, {user.name}</div>
+          <div
+            className="info left"
+            style={{ cursor: "pointer" }}
+            onClick={() => (window.location.href = "/profile")}
+          >
+            Welcome, {user.name}
+          </div>
+          <div
+            className="info left"
+            style={{ cursor: "pointer" }}
+            onClick={() => (window.location.href = "/admin-panel")}
+          >
+            Admin Panel
+          </div>
           <div className="logout">
             <p className="info right">{todaysDate}</p>
-            <button type="submit">Logout</button>
+            <button
+              type="submit"
+              onClick={() => {
+                localStorage.clear();
+                window.location.href = "/login";
+              }}
+            >
+              Logout
+            </button>
           </div>
         </div>
-
-        <h1>QUIZPOINT</h1>
       </div>
 
       <div className="search-container">

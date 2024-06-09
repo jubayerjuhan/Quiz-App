@@ -1,0 +1,32 @@
+.container {
+  max-width: 70vw;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: #f8f9fa;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: #007bff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
