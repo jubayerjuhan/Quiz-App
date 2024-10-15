@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import "../signup/Signup.css";
 import axiosInstance from "../../axios/axiosInstance";
 import { setUser } from "../../redux/actions";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -54,7 +55,7 @@ const Login = () => {
       // Redirect to the homepage
       window.location.href = "/";
     } catch (error) {
-      window.alert(error.response.data.message);
+      toast.error(error.response.data.message);
       console.error("Login error:", error);
     }
   };

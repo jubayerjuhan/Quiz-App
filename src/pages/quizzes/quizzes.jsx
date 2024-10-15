@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import axiosInstance from "../../axios/axiosInstance"; // Make sure this points to your axios instance
 import "./quizzes.css";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 const Quizzes = () => {
   const location = useLocation();
@@ -13,7 +14,7 @@ const Quizzes = () => {
 
   const [level, setLevel] = useState("");
   const [questions, setQuestions] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(0); // 1 minute per question
   const [loading, setLoading] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [score, setScore] = useState(null);
@@ -30,6 +31,7 @@ const Quizzes = () => {
       );
 
       setQuestions(response.data);
+      setTimeLeft(response.data.length * 60);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching questions:", error);
@@ -76,9 +78,12 @@ const Quizzes = () => {
   };
 
   const submitQuiz = async () => {
+    if (timeLeft <= 0) {
+      return toast.error("Time's up! Quiz not submitted.");
+    }
     const userScore = calculateScore();
     setScore(userScore);
-    window.alert(
+    toast.success(
       `Quiz submitted. Your score: ${userScore}/${questions.length}`
     );
 
@@ -93,7 +98,9 @@ const Quizzes = () => {
       console.error("Error saving score:", error);
     }
 
-    window.location.href = "/profile";
+    setTimeout(() => {
+      window.location.href = "/profile";
+    }, 3000);
   };
 
   return (

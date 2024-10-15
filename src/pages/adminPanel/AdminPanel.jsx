@@ -2,6 +2,7 @@ import { useState } from "react";
 import axiosInstance from "../../axios/axiosInstance";
 import "./AdminPanel.css";
 import { subjects } from "../../mock-data/subjects";
+import toast from "react-hot-toast";
 
 const AdminPanel = () => {
   const [question, setQuestion] = useState("");
@@ -21,7 +22,7 @@ const AdminPanel = () => {
     const newQuestion = { question, options, answer, level, subject };
 
     if (newQuestion.subject === null) {
-      window.alert("Please Select a Subject");
+      toast.error("Please Select a Subject");
     }
     try {
       await axiosInstance.post("http://localhost:3000/questions", newQuestion);
